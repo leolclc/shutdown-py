@@ -25,16 +25,8 @@ def OnClick2():
    a = Frame(tk)
    myLabel = Label(tk, text="Agendamento cancelado") 
    myLabel.pack()
-def OnClick3():
-      tk = Tk()
-      a = Frame(tk)
-      shutdown()
-      p = subprocess.Popen("ipconfig", stdout=subprocess.PIPE, shell=True)
-      (output, err) = p.communicate()
-      p_status = p.wait()
-      myLabel = Label(tk, text=output) 
-      myLabel.pack()
-def OnClick4():
+
+ def OnClick4():
       tk = Tk()
       a = Frame(tk)
       
@@ -57,12 +49,8 @@ def OnClick5():
    #myLabel.pack()
           
 
-def shutdown():
-   subprocess.call(["shutdown", "/s", "/t", "900"])
-   tk = Tk()
-   a = Frame(tk)
-   myLabel = Label(tk, text=f"Desligando em {900/60} minutos" ) 
-   myLabel.pack()
+def exit():
+   root.destroy()
 if __name__ == "__main__":
    root = tkinter.Tk()
    root.title("Shutdown Schedule")
@@ -77,7 +65,7 @@ if __name__ == "__main__":
    myButton2.pack(expand = tkinter.TRUE)
    myButton4 = Button(root, text= "VerIP", command= OnClick4)
    myButton4.pack(expand = tkinter.TRUE)
-   myButton3 = Button(root, text= "Click", command= shutdown) #OnClick3
+   myButton3 = Button(root, text= "Fechar", command= exit)
    myButton3.pack(expand = tkinter.TRUE)
 
    root.mainloop()
